@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+    <input id="open-btn" type="button" onclick="openProtocol()" value="Launch Jyro"></input>
+    <input type='button' value='Test Custom Url' onclick='goto6()'>
+
+
+    <!-- <input type="button" onclick="openProtocol('jyro')" value="jyro://"></input> -->
+    <!-- <input type="button" onclick="openProtocol('mycoolapp')" value="mycoolapp://"></input> -->
+    <script>
+        var urlParams = new URLSearchParams(window.location.search);
+        var id = urlParams.get('id');
+        var name = urlParams.get('name');
+
+        document.querySelector("#content").innerHTML =
+            "\
+            Welcome to Jyro. \
+            You have been invited by "+ name + "\
+            Click the link below to open the Jyro app and play with "+ name + "\
+        ";
+
+        document.addEventListener("DOMContentLoaded", function () {
+            //document.querySelector("#open-btn").click()
+            //goto6('jyroapp://', 'https://www.google.com')
+            window.open('https://blurrish.com/invite2?id='+id, '_self')
+        })
+    </script>
+
+
+</body>
+
+</html>
